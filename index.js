@@ -16,6 +16,7 @@ async function run() {
     try {
         const blogsCollection = client.db('donation').collection('blogs');
         const commentsCollection = client.db('donation').collection('comments');
+        const paymentsCollection = client.db('donation').collection('payment');
 
 
         app.get('/blogs', async (req, res) => {
@@ -47,7 +48,7 @@ async function run() {
         })
         app.get('/payment',async (req, res) => {
             const paymentData = req.body;
-            const payment= await 
+            const payment = await paymentsCollection.insertOne(paymentData)
         })
         app.post('/comments', async (req, res) => {
             const comment = req.body;
