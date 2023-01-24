@@ -45,7 +45,10 @@ async function run() {
             const comments = await cursor.toArray();
             res.send(comments);
         })
-
+        app.get('/payment',async (req, res) => {
+            const paymentData = req.body;
+            const payment= await 
+        })
         app.post('/comments', async (req, res) => {
             const comment = req.body;
             const result = await commentsCollection.insertOne(comment);
